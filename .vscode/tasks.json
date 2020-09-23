@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc funciones.c -g"
+            "command": "gcc funcion_2.c -g"
         }
     ]
 }
