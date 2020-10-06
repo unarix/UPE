@@ -1,22 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 short genRandom();
 
 int main()
 {
-    short i = 0;
+    srand(time(NULL));
 
-    while(i<10)
+    int i=1;
+
+    while(i<11)
     {
-        printf("el generado aleatorio es: %hd \n",  genRandom());
-        i = i + 1;
-    }
-    
-    return 0;
+        printf("Valor %hd: %hd \n", i, genRandom());
+        i++;
+    }   
+
 }
 
 short genRandom()
 {
-    return rand();
+    return rand() % (90 - 40 + 1) + 40 ;
+    //return rand();
 }

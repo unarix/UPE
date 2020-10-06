@@ -27,7 +27,7 @@ int main()
 short genRandoms(short N) // firma
 {
     //srand (getpid());
-    //return rand () % (N-M+1) + M;   // Este está entre M y N
+    //return rand () % (HASTA-DESDE+1) + DESDE;   // Este está entre M y N
     return rand () % (N-10+1) + 10;   // Este está entre M y N
     //return rand() % (N+1);
 }
