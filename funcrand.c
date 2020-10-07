@@ -2,24 +2,30 @@
 #include <stdlib.h>
 #include <time.h>
 
-short genRandom();
-
 int main()
 {
-    srand(time(NULL));
+    short i=0;
+    srand(time(NULL)); //<-- NO SACAR ESTO
 
-    int i=1;
-
-    while(i<11)
+    while(i<10)
     {
-        printf("Valor %hd: %hd \n", i, genRandom());
+        printf("El valor generado es: %c\n", rand() % 127);
         i++;
-    }   
+    }
 
-}
+    // short A = 0;
+    // short B = 0;
+    // short C = 0;
 
-short genRandom()
-{
-    return rand() % (90 - 40 + 1) + 40 ;
-    //return rand();
+    // A = rand () % (90-40+1) + 40;
+    // B = rand () % (90-40+1) + 40;
+    // C = rand () % (90-40+1) + 40;
+
+    // //rand () % (HASTA-DESDE+1)
+
+    // printf("El valor generado para A es: %hd\n", A);
+    // printf("El valor generado para B es: %hd\n", B);
+    // printf("El valor generado para C es: %hd\n", C);
+
+
 }
