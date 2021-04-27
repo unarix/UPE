@@ -15,13 +15,13 @@ using System.Collections.Generic;
 
 namespace aSchedule
 {
-    static class Program
+    class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Batch
         /// </summary>
         [STAThread]
-        static void Main()
+        void Main()
         {
             Console.WriteLine("Iniciado");
 
@@ -127,6 +127,8 @@ namespace aSchedule
                     SRD.Instance.DownloadImages();
                     break;*/
             }
+
+            Main();
         }
     }
 }

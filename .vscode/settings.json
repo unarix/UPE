@@ -3,6 +3,9 @@
         "!c"
     ],
     "files.associations": {
-        "string_view": "c"
+        "string_view": "c",
+        "chrono": "c",
+        "random": "c",
+        "limits": "c"
     }
 }

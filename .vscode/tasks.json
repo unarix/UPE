@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc funcion_2.c -g"
+            "command": "gcc main.c -g"
         }
     ]
 }
