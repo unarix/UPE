@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc main.c -g"
+            "command": "gcc ./2020/main.c -g"
         }
     ]
 }
