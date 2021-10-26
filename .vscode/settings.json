@@ -6,6 +6,7 @@
         "string_view": "c",
         "chrono": "c",
         "random": "c",
-        "limits": "c"
+        "limits": "c",
+        "stdio.h": "c"
     }
 }
