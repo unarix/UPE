@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1655059166 source:/home/unarix/Documentos/code/UPE/CodeBlocks/UPE/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1650400137 source:/home/unarix/Documentos/code/UPE/CodeBlocks/UPE/puntero.c
+	<stdio.h>
+
+1650400912 source:/home/unarix/Documentos/code/UPE/CodeBlocks/UPE/struct.c
+	<stdio.h>
+
+1652214298 source:/home/unarix/Documentos/code/UPE/CodeBlocks/UPE/realloc1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+

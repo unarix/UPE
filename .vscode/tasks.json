@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc ./2021/2/main.c -g"
+            "command": "gcc ./2022/EDA/main.c -g"
         }
     ]
 }
