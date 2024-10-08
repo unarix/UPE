@@ -3,8 +3,8 @@
 
 int main()
 {
-    //Realice un programa que pida tres números por teclado e indique cuál es el
-    //mayor de los tres (en caso de que los tres números sean iguales también debe
+    //Realice un programa que pida tres nÃºmeros por teclado e indique cuÃ¡l es el
+    //mayor de los tres (en caso de que los tres nÃºmeros sean iguales tambiÃ©n debe
     //indicarlo).
 
     short a=0;
