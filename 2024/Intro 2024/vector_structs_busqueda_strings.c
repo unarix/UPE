@@ -41,6 +41,7 @@ int main(void)
         printf("  Sueldo: %.3f \n",empleados[i].sueldo);
     }
 
+    // Busqueda LINEAL!!!
     printf("\n ** Los empleados que deben pagar impuesto a las ganancias son: ** \n");
     for (i=0;i<CANT;i++)
     {
