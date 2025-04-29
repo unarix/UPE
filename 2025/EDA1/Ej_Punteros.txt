@@ -1,0 +1,186 @@
+
+1)
+Escribí un programa en C que:
+	a- Declare una variable entera.
+	b- Declare un puntero a entero y le asigne la dirección de la variable.
+
+Luego Muestre por pantalla:
+	a- El valor de la variable.
+	b- La dirección de memoria de la variable.
+	c- El valor accedido mediante el puntero.
+	d- La dirección almacenada en el puntero.
+	
+#include <stdio.h>
+
+int main() {
+    int numero = 42;         // Paso 1
+    int *puntero;            // Paso 2
+
+    puntero = &numero;       // Asignar la dirección de 'numero'
+
+    // Paso 3: Mostrar información
+    printf("Valor de la variable: %d\n", numero);
+    printf("Direccion de la variable: %p\n", &numero);
+    printf("Valor desde el puntero: %d\n", *puntero);
+    printf("Direccion almacenada en el puntero: %p\n", puntero);
+
+    return 0;
+}	
+
+2)
+Escribí un programa en C que:
+	a- Declare dos variables enteras.
+	b- Pida al usuario que ingrese un valor para cada una.
+	c- Llame a una función que reciba punteros a esas dos variables y intercambie sus valores.
+	d- Muestre los valores luego del intercambio.
+
+#include <stdio.h>
+
+// VAMOS A HACER EL ULTIMO EJ PARA QUE SE VEA UNA APLICACION SENCILLA.
+// QUEREMOS HACER UNA FUNCION QUE INTERCAMBIE EL VALOR DE NUESTRAS VARIABLES EN EL MAIN
+
+void intercambia (short *, short *); // NOTAR QUE NO HACE FALTA PONER LA VAR PERO SI EL TIPO!!!!
+
+int main ()
+{
+    // declaración de variables a utilizar
+    short a = 10;
+    short b = 5;
+
+    // impresión de resultados
+    printf("El valor de A es: %hd \n",a);
+    printf("El valor de B es: %hd \n",b);
+
+    // llamado a función
+    printf("\n\nLlamar a la funcion intercambia\n");
+    intercambia(&a,&b);
+
+    // impresión de resultados
+    printf("El valor de A es: %hd \n",a);
+    printf("El valor de B es: %hd \n",b);
+
+    return 0;
+}
+
+void intercambia (short *ptrnro1, short *ptrnro2)
+{
+    short aux= *ptrnro1;
+    *ptrnro1= *ptrnro2;
+    *ptrnro2= aux;
+}
+
+3)
+Escribí un programa en C que:
+	a- Declare dos variables enteras.
+	b- Pida al usuario que ingrese un valor para cada una.
+	c- Use una función llamada mayorNumero que reciba punteros a esas dos variables.
+	d- La función debe mostrar cuál es el mayor valor.
+
+#include <stdio.h>
+
+// Declaración de la función
+void mayorNumero(int *a, int *b);
+
+int main() {
+    int num1, num2;
+
+    printf("Ingrese el primer numero: ");
+    scanf("%d", &num1);
+
+    printf("Ingrese el segundo numero: ");
+    scanf("%d", &num2);
+
+    // Llamar a la función para mostrar el mayor
+    mayorNumero(&num1, &num2);
+
+    return 0;
+}
+
+// Definición de la función
+void mayorNumero(int *a, int *b) {
+    if (*a > *b) {
+        printf("El mayor es: %d\n", *a);
+    } else if (*b > *a) {
+        printf("El mayor es: %d\n", *b);
+    } else {
+        printf("Ambos numeros son iguales.\n");
+    }
+}
+
+4)
+Escribí un programa en C que:
+	a- Pida al usuario que ingrese dos números enteros.
+	b- Use una función llamada sumar que reciba dos punteros a enteros (los números) y un tercer puntero donde guardar la suma.
+	c- En main, mostrar el resultado.
+	
+#include <stdio.h>
+
+// Declaración de la función
+void sumar(int *a, int *b, int *resultado);
+
+int main() {
+    int num1, num2, suma;
+
+    printf("Ingrese el primer numero: ");
+    scanf("%d", &num1);
+
+    printf("Ingrese el segundo numero: ");
+    scanf("%d", &num2);
+
+    // Llamar a la función que calcula la suma
+    sumar(&num1, &num2, &suma);
+
+    printf("La suma es: %d\n", suma);
+
+    return 0;
+}
+
+// Definición de la función
+void sumar(int *a, int *b, int *resultado) {
+    *resultado = *a + *b;
+}
+
+5)
+Pida al usuario que ingrese 10 números enteros y los almacene en un arreglo.
+Use una función llamada contarParesImpares que reciba:
+	Un puntero al arreglo.
+	El tamaño del arreglo.
+	Un puntero a un entero donde guardar la cantidad de pares.
+	Un puntero a un entero donde guardar la cantidad de impares.
+Muestre cuántos números pares e impares hay.
+
+#include <stdio.h>
+
+// Prototipo de la función
+void contarParesImpares(int *arr, int tamaño, int *pares, int *impares);
+
+int main() {
+    int numeros[10];
+    int i, cantPares = 0, cantImpares = 0;
+
+    // Paso 1: Pedir los 10 números
+    printf("Ingrese 10 numeros enteros:\n");
+    for (i = 0; i < 10; i++) {
+        printf("Numero %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Paso 2: Llamar a la función que cuenta pares e impares
+    contarParesImpares(numeros, 10, &cantPares, &cantImpares);
+
+    // Paso 3: Mostrar los resultados
+    printf("\nCantidad de pares: %d\n", cantPares);
+    printf("Cantidad de impares: %d\n", cantImpares);
+
+    return 0;
+}
+
+// Paso 4: Implementación de la función
+void contarParesImpares(int *arr, int tamaño, int *pares, int *impares) {
+    for (int i = 0; i < tamaño; i++) {
+        if (*(arr + i) % 2 == 0)
+            (*pares)++;
+        else
+            (*impares)++;
+    }
+}
