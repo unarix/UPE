@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc ./2022/INTRO/dib_triangulo.c -g"
+            "command": "gcc ./2025/EDA1/ordenamiento.c -g"
         }
     ]
 }
