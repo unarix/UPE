@@ -6,7 +6,7 @@
         {
             "label": "compile",
             "type": "shell",
-            "command": "gcc ./2025/EDA1/anima.c -g"
+            "command": "gcc ./2025/EDA1/extra_anima.c -g"
         }
     ]
 }
