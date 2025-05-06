@@ -4,7 +4,6 @@
 
 int main()
 {
-
     short i=0;
     
     short B[5];
