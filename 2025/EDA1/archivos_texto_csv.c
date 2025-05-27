@@ -31,10 +31,10 @@ int main() {
 
     printf("Contenido del archivo agenda.csv:\n\n");
 	
-	fgets(buffer, MAX_LINE, archivo)
+	fgets(buffer, MAX_LINE, archivo);
     while (!feof(archivo)) {
         printf("%s", buffer);  // fgets ya incluye el salto de línea
-		fgets(buffer, MAX_LINE, archivo);
+	fgets(buffer, MAX_LINE, archivo);
     }
 
     fclose(archivo);
