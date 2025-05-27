@@ -5,10 +5,10 @@
 
 int main() {
     FILE *archivo;
-    char buffer[MAX_LINE];
+    char buffer[MAX_LINE]; // No explicar al principio.
 
     // 1. Escribir en el archivo CSV
-    archivo = fopen("agenda.csv", "w");
+    archivo = fopen("agenda.csv", "wt");
     if (archivo == NULL) {
         perror("Error al abrir el archivo para escribir");
         return 1;
@@ -30,9 +30,11 @@ int main() {
     }
 
     printf("Contenido del archivo agenda.csv:\n\n");
-
-    while (fgets(buffer, MAX_LINE, archivo)) {
+	
+	fgets(buffer, MAX_LINE, archivo)
+    while (!feof(archivo)) {
         printf("%s", buffer);  // fgets ya incluye el salto de línea
+		fgets(buffer, MAX_LINE, archivo);
     }
 
     fclose(archivo);
