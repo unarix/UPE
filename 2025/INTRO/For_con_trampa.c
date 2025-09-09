@@ -17,7 +17,8 @@ int main() {
     scanf("%hd", &fin);
 
     if (inicio <= fin) {
-        for (int i = inicio; i <= fin; i++) {
+        int i = inicio;
+        for (i; i <= fin; i++) {
             printf("%hd ", i);
         }
     } else {
