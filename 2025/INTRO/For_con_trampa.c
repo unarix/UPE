@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 //Hacé un programa que pida al usuario ingresar dos números enteros: un valor inicial y un valor final.
-//Luego, usá un bucle for para imprimir todos los números pares entre esos dos valores.
+//Luego, usá un bucle for para imprimir todos los números entre esos dos valores.
 
 // Los alumnos suelen asumir que siempre se empieza de menor a mayor, por lo tanto escriben algo como:
 // for (int i = inicio; i <= fin; i++) { ... }
