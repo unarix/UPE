@@ -16,9 +16,13 @@ int main() {
     printf("Ingrese el valor final: ");
     scanf("%hd", &fin);
 
+    //int i = inicio;
+    //for (i; i <= fin; i++) {
+        //printf("%hd ", i);
+    //}
+
     if (inicio <= fin) {
-        int i = inicio;
-        for (i; i <= fin; i++) {
+        for (int i = inicio; i <= fin; i++) {
             printf("%hd ", i);
         }
     } else {
