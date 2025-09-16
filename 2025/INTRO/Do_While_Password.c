@@ -1,6 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
+    //El mas basico usando do while... 
+    // Despues expandir a que permita solo 3 reintentos.
+    #include <stdio.h>
+    #include <string.h>
+    
+    int main() {
+        char password[20];
+        const char correctPassword[] = "clave123";
+    
+        do {
+            printf("Ingrese la contraseña: ");
+            scanf("%19s", password); // %19s para evitar desbordamiento de buffer
+        } while (strcmp(password, correctPassword) != 0);
+    
+        printf("¡Contraseña correcta!\n");
+    
+        return 0;
+    }
+*/
+
 // El bucle do...while asegura que se ejecuta al menos una vez.
 // El usuario tiene hasta 3 intentos (intentos < 3).
 // Se usa strcmp() para comparar la contraseña ingresada con la correcta.
