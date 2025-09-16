@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
+// El bucle do...while asegura que se ejecuta al menos una vez.
+// El usuario tiene hasta 3 intentos (intentos < 3).
+// Se usa strcmp() para comparar la contraseña ingresada con la correcta.
+// Si el usuario acierta, se marca accesoConcedido = 1 y se hace break para salir del bucle.
+// Al finalizar, se muestra un mensaje de acceso concedido o denegado según el resultado.
+
 int main() {
     char password[20];
     const char correctPassword[] = "clave123";
