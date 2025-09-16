@@ -6,30 +6,32 @@
 // Se usa strcmp() para comparar la contraseña ingresada con la correcta.
 // Si el usuario acierta, se marca accesoConcedido = 1 y se hace break para salir del bucle.
 // Al finalizar, se muestra un mensaje de acceso concedido o denegado según el resultado.
+// En cada ciclo, mostrarle al usuario cuantos reintentos le quedan.
 
 int main() {
     char password[20];
-    const char correctPassword[] = "clave123";
+    const char correctPassword[] = "pass123";
     int intentos = 0;
     int accesoConcedido = 0;
 
     do {
-        printf("Ingrese la contraseña: ");
+        printf("Ingrese la password: ");
         scanf("%19s", password);
+
+        intentos = intentos + 1;
 
         if (strcmp(password, correctPassword) == 0) {
             accesoConcedido = 1;
-            break;  // Salimos del bucle si la contraseña es correcta
+            printf("Acceso concedido en el intento: %d\n", intentos);
+            // break;  // No nos gusta que usen el break!
         } else {
-            printf("Contraseña incorrecta. Intentos restantes: %d\n", 2 - intentos);
+            printf("Password incorrecta. Intentos restantes: %d\n", 3 - intentos , accesoConcedido);
         }
 
-        intentos++;
-
-    } while (intentos < 3);
+    } while (intentos < 3 && accesoConcedido != 1);
 
     if (accesoConcedido) {
-        printf("¡Acceso concedido!\n");
+        printf("Bienvenido al sistema!\n");
     } else {
         printf("Acceso denegado. Demasiados intentos fallidos.\n");
     }
