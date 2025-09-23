@@ -24,13 +24,13 @@ int main()
     // por ejemplo, printf es una funcion.
     printf("Hola mundo\n");
 
-    // Las funciones tienen algunas caracteristicas como: 
+    // **** Las funciones tienen algunas caracteristicas como: **** // 
     
-    // **** Los parametros de una funcion ***** //
+    // Los parametros de una funcion
     // Los parametros son las variables que enviamos a la funcion para que haga su tarea
     // en el ejemplo del printf le enviamos un string para que ese string lo imprima en la pantalla 
 
-    // **** El retorno de la funcion ****
+    // El retorno de la funcion 
     // Cada función puede devolver un valor con un tipo de dato específico (como int, float, char, etc.). Si no devuelve nada, se declara como void.
     
     // **** Ahora vamos a programar una funcion propria ***** //
