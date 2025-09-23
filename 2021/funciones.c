@@ -6,15 +6,14 @@ void separar_texto(); // PROTOTIPO
 int main()
 {
     // **** Que es una funcion ***** //
-    // Una función es un conjunto de instrucciones que se agrupan bajo un nombre y que se puede ejecutar (“llamar”) desde distintas partes del programa.
+    // Una función es un conjunto de instrucciones.. que se agrupan bajo un nombre y que se puede ejecutar o “llamar”... desde distintas partes del programa.
 
     // Tambien: Es un sub algoritmo compuesto por un conjunto de intrucciones que permite resolver una tarea especifica y que forma parte del algoritmo principal
     // - Generalmente no sabemos que pasa dentro de la funcion, por eso le decimos: Caja negra
     // - De la funcion, sabemos lo que recibe y lo que retorna, pero no que hace dentro.
     
-    // **** Ventajas de usar funciones ***** //
-    // Disminuir cantidad de codigo
-    // Disminuir cantidad de errores
+    // **** Para que o porque las usamos? Ventajas de usar funciones ***** //
+    // Disminuir cantidad de codigo y errores porque centralizamos todo en un bloque de codigo.
     // Reducir la complejidad del programa --> porque usando funciones ahorramos cantidad de lineas de codigo
     // No duplicar el codigo
     // Reutilizar el codigo --> puedo hacer mis propias funciones y usarlas en otros programas
