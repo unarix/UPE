@@ -39,5 +39,9 @@ int main() {
         printf("Las cadenas son diferentes.\n");
     }
 
+    // Mostrar la longitud de cada cadena
+    printf("\nLongitud de la primera cadena: %lu caracteres\n", strlen(cadena1));
+    printf("Longitud de la segunda cadena: %lu caracteres\n", strlen(cadena2));
+    
     return 0;
 }
