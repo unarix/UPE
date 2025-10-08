@@ -29,6 +29,8 @@ int main() {
     printf("Ingrese la primera cadena: ");
     scanf("%s", cadena1);
 
+    fflush(stdin); //Limpia el buffer!
+    
     printf("Ingrese la segunda cadena: ");
     scanf("%s", cadena2);
 
