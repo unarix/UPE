@@ -21,6 +21,13 @@ Como trabaja?
     
 */
 
+// Definición de estructura (Primero no hacer con estrcutura, hacer al final)
+struct persona {
+    char nombre[50];
+    char apellido[50];
+    char nombreCompleto[100];
+};
+
 int main() {
     char cadena1[100];
     char cadena2[100];
@@ -30,7 +37,7 @@ int main() {
     scanf("%s", cadena1);
 
     fflush(stdin); //Limpia el buffer!
-    
+
     printf("Ingrese la segunda cadena: ");
     scanf("%s", cadena2);
 
@@ -44,6 +51,43 @@ int main() {
     // Mostrar la longitud de cada cadena
     printf("\nLongitud de la primera cadena: %lu caracteres\n", strlen(cadena1));
     printf("Longitud de la segunda cadena: %lu caracteres\n", strlen(cadena2));
-    
-    return 0;
+
+    // String Cat: Concatena dos cadenas de caracteres (las une)
+    strcat(cadena1, cadena2);
+    printf("La union es: %s \n", cadena1);
+
+    // Str Copy:
+    char copia[100];
+    strcpy(copia, cadena1);
+    printf("La copia es: %s \n", cadena1);
+
+    // Con estructuras:
+    struct persona p;
+
+    // Ingreso de datos
+    printf("Ingrese el nombre: ");
+    scanf("%s", p.nombre);
+
+    printf("Ingrese el apellido: ");
+    scanf("%s", p.apellido);
+
+    // Construcción del nombre completo
+    strcpy(p.nombreCompleto, p.nombre);     // Copiar nombre
+    strcat(p.nombreCompleto, " ");          // Agregar espacio
+    strcat(p.nombreCompleto, p.apellido);   // Agregar apellido
+
+    // Mostrar nombre completo
+    printf("\nNombre completo: %s\n", p.nombreCompleto);
+
+    // Mostrar longitud
+    printf("Longitud del nombre completo: %lu caracteres\n", strlen(p.nombreCompleto));
+
+    // Comparación de nombre con "Juan"
+    if (strcmp(p.nombre, "Juan") == 0) {
+        printf("El nombre ingresado es Juan.\n");
+    } else {
+        printf("El nombre ingresado no es Juan.\n");
+    }
+
+
 }
