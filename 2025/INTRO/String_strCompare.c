@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h> // Necesario para usar strcmp()
 
-/* ingrese dos cadenas de caracteres y comparelas 
+/* ingrese dos cadenas de caracteres y comparelas
 
 ¿Qué hace strcmp()?
     strcmp(cadena1, cadena2) compara carácter por carácter.
@@ -18,8 +18,10 @@ Como trabaja?
             0 → las cadenas son iguales
             >0 → el primer carácter distinto en s1 es mayor que el de s2
             <0 → el carácter en s1 es menor que el de s2
-    
+
 */
+
+#define CANT_PERSONAS 3
 
 // Definición de estructura (Primero no hacer con estrcutura, hacer al final)
 struct persona {
@@ -61,33 +63,42 @@ int main() {
     strcpy(copia, cadena1);
     printf("La copia es: %s \n", cadena1);
 
-    // Con estructuras:
-    struct persona p;
+    
+    
+    // Con un vector de estructuras:
+    struct persona personas[CANT_PERSONAS];
 
-    // Ingreso de datos
-    printf("Ingrese el nombre: ");
-    scanf("%s", p.nombre);
+    // Carga de datos
+    for (int i = 0; i < CANT_PERSONAS; i++) {
+        printf("\nPersona %d\n", i + 1);
 
-    printf("Ingrese el apellido: ");
-    scanf("%s", p.apellido);
+        printf("Ingrese el nombre: ");
+        scanf("%s",personas[i].nombre);
 
-    // Construcción del nombre completo
-    strcpy(p.nombreCompleto, p.nombre);     // Copiar nombre
-    strcat(p.nombreCompleto, " ");          // Agregar espacio
-    strcat(p.nombreCompleto, p.apellido);   // Agregar apellido
+        printf("Ingrese el apellido: ");
+        scanf("%s",personas[i].apellido);
 
-    // Mostrar nombre completo
-    printf("\nNombre completo: %s\n", p.nombreCompleto);
-
-    // Mostrar longitud
-    printf("Longitud del nombre completo: %lu caracteres\n", strlen(p.nombreCompleto));
-
-    // Comparación de nombre con "Juan"
-    if (strcmp(p.nombre, "Juan") == 0) {
-        printf("El nombre ingresado es Juan.\n");
-    } else {
-        printf("El nombre ingresado no es Juan.\n");
+        // Construcción del nombre completo
+        strcpy(personas[i].nombreCompleto, personas[i].nombre);
+        strcat(personas[i].nombreCompleto, " ");
+        strcat(personas[i].nombreCompleto, personas[i].apellido);
     }
 
+    // Mostrar datos
+    printf("\n----- LISTADO DE PERSONAS -----\n");
+    for (int i = 0; i < CANT_PERSONAS; i++) {
+        printf("Persona %d:\n", i + 1);
+        printf("Nombre completo: %s\n", personas[i].nombreCompleto);
+        printf("Longitud: %lu caracteres\n", strlen(personas[i].nombreCompleto));
 
+        if (strcmp(personas[i].nombre, "Juan") == 0) {
+            printf("El nombre ingresado es Juan.\n");
+        } else {
+            printf("El nombre ingresado no es Juan.\n");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
 }
