@@ -1,70 +1,38 @@
-#include<iostream> 
-#include<string> 
-#include<thread> 
-#include<cstdlib> 
-#include<ctime> 
-#include<chrono> 
-  
-// Width of the matrix line 
-const int width = 70; 
-  
-// Defines the number of flips in Boolean Array 'switches' 
-const int flipsPerLine =5; 
-  
-// Delay between two successive line print 
-const int sleepTime = 90; 
-  
-using namespace std; 
-  
-int main() 
-{ 
-    int i=0, x=0; 
-  
-    // srand initialized with time function 
-    // to get distinct rand values at runtime 
-    srand(time(NULL)); 
-  
-    // Used to decide whether to print 
-    // the character in that particular iteration 
-    bool switches[width] = {0}; 
-  
-    // Set of characters to print from 
-    const string ch = "1234567890qwertyuiopasdfghjkl"
-                      "zxcvbnm,./';[]!@#$%^&*()-=_+"; 
-    const int l = ch.size(); 
-  
-    // Green font over black console, duh! 
-    system("Color 0A"); 
-  
-    // Indefinite Loop 
-    while (true) 
-    { 
-        // Loop over the width 
-        // Increment by 2 gives better effect 
-        for (i=0;i<width;i+=2) 
-        { 
-            // Print character if switches[i] is 1 
-            // Else print a blank character 
-            if (switches[i]) 
-                cout << ch[rand() % l] << " "; 
-            else
-                cout<<"  "; 
-        } 
-  
-        // Flip the defined amount of Boolean values 
-        // after each line 
-        for (i=0; i!=flipsPerLine; ++i) 
-        { 
-            x = rand() % width; 
-            switches[x] = !switches[x]; 
-        } 
-  
-         // New Line 
-        cout << endl; 
-  
-        // Using sleep_for function to delay, 
-        // chrono milliseconds function to convert to milliseconds 
-        this_thread::sleep_for(chrono::milliseconds(sleepTime)); 
-    } 
-    return 0; 
-} 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>     // para usleep()
+#include <string.h>
+
+#define ANCHO 80
+#define ALTO 25
+
+int main() {
+    char chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%&";
+    int columnas[ANCHO];
+    
+    // Inicialización
+    srand(time(NULL));
+    memset(columnas, 0, sizeof(columnas));
+
+    // Bucle infinito para simular la animación
+    while (1) {
+        for (int y = 0; y < ALTO; y++) {
+            for (int x = 0; x < ANCHO; x++) {
+                // Determinar si se imprime un carácter o un espacio
+                if (rand() % 10 > 2) {
+                    char c = chars[rand() % (sizeof(chars) - 1)];
+                    printf("\033[1;32m%c\033[0m", c);  // Verde brillante
+                } else {
+                    printf(" ");
+                }
+            }
+            printf("\n");
+        }
+
+        usleep(100000);  // Pausa entre "frames"
+        printf("\033[H"); // Mover el cursor al inicio (sin limpiar pantalla)
+    }
+
+    return 0;
+}
