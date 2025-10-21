@@ -45,6 +45,18 @@ int main() {
         }
     }
 
+    // Ordenar a las personas por el metodo de pivot
+    struct informacion temp;
+    for (short i = 0; i < n - 1; i++) {
+        for (short j = i + 1; j < n; j++) {
+            if (persona[i].edad > persona[j].edad) {
+                temp = persona[i];
+                persona[i] = persona[j];
+                persona[j] = temp;
+            }
+        }
+    }
+
     // Mostrar todos los datos
     printf("\n--- Listado de personas ---\n");
     for (i = 0; i < N; i++) {
