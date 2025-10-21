@@ -96,7 +96,6 @@ int main() {
                        personas[i].nombre,
                        personas[i].edad);
                 encontrado = 1;
-                break;
             }
         }
     } else if (opcion == 2) {
@@ -110,7 +109,6 @@ int main() {
                        personas[i].nombre,
                        personas[i].edad);
                 encontrado = 1;
-                break;
             }
         }
     } else {
