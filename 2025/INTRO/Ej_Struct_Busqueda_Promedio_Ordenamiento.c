@@ -4,17 +4,17 @@
 #define N 4
 #define MAX_NOMBRE 50
 
+float calcularPromedioEdad(short suma, short n); //Prototipo
+
 // Definición de la estructura
-typedef struct {
+struct persona{
     short legajo;
     char nombre[MAX_NOMBRE];
     short edad;
-} persona;
-
-float calcularPromedioEdad(short suma, short n); //Prototipo
+};
 
 int main() {
-    persona personas[N];
+    struct persona personas[N];
     short i;
     short edadMax, edadMin, suma = 0;
 
@@ -34,7 +34,7 @@ int main() {
     printf("\n suma: %hd\n",suma);
 
     // Ordenar a las personas por el metodo de burbuja
-    persona temp;
+    struct persona temp;
     for (short i = 0; i < N - 1; i++) {
         for (short j = 0; j < N - 1 - i; j++) {
             if (personas[j].edad > personas[j + 1].edad) {
