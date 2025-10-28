@@ -35,16 +35,24 @@ int main() {
 
     // Ordenar a las personas por el metodo de burbuja
     struct persona temp;
-    for (short i = 0; i < N - 1; i++) {
-        for (short j = 0; j < N - 1 - i; j++) {
-            if (personas[j].edad > personas[j + 1].edad) {
-                temp = personas[j];
-                personas[j] = personas[j + 1];
-                personas[j + 1] = temp;
+
+    short ordenado;
+
+    // Ordenar con burbuja (Double Sort)
+    do{
+        ordenado = 0;
+        for (short i = 0; i < N - 1; i++) {
+            if (personas[i].edad > personas[i + 1].edad) {
+                temp = personas[i];
+                personas[i] = personas[i + 1];
+                personas[i + 1] = temp;
+                ordenado = 1;
             }
         }
-    }
+    }while (ordenado);
 
+
+    /*
     // Ordenar a las personas por el metodo de pivot
     struct informacion temp;
     for (short i = 0; i < n - 1; i++) {
@@ -56,6 +64,7 @@ int main() {
             }
         }
     }
+    */
 
     // Mostrar todos los datos
     printf("\n--- Listado de personas ---\n");
