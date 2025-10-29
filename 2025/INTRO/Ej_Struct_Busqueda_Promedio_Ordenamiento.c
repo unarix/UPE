@@ -16,7 +16,7 @@ struct persona{
 int main() {
     struct persona personas[N];
     short i;
-    short edadMax, edadMin, suma = 0;
+    short edadMax, edadMin, suma = 0, opcion;
 
     // Cargar datos
     for (i = 0; i < N; i++) {
@@ -33,24 +33,63 @@ int main() {
     }
     printf("\n suma: %hd\n",suma);
 
+    printf("========= MENU =========\n");
+    printf("1. Ordenar por edad (ascendente)\n");
+    printf("2. Ordenar por legajo y luego edad (ascendente)\n");
+    printf("========================\n");
+    printf("Ingrese una opcion: ");
+    scanf("%hd", &opcion);
+
+
     // Ordenar a las personas por el metodo de burbuja
     struct persona temp;
-
     short ordenado;
+    
+    short R = 0;
+    switch (opcion) {
+            case 1:
+                R = 0;
+                // Ordenar con burbuja (Double Sort) // solo por edad!
+                do{
+                    ordenado = 0;
+                    R++;
+                    for (short i = 0; i < N-R; i++) {
+                        if (personas[i].edad > personas[i + 1].edad) {
+                            temp = personas[i];
+                            personas[i] = personas[i + 1];
+                            personas[i + 1] = temp;
+                            ordenado = 1;
+                        }
+                    }
+                }while (ordenado);
+                break;
+            case 2:
+                // Ordenar con burbuja (Double Sort) // por legajo y luego por edad!
+                R = 0;
+                do{
+                    ordenado = 0;
+                    R++;
+                    for (short i = 0; i < N-R; i++) {
+                        short cambiar = 0;
+                        if (personas[i].legajo > personas[i + 1].legajo) {
+                            cambiar = 1;
+                        }
+                        // Segundo criterio: si las edades son iguales, ordenar por promedio (descendente)
+                        else if (personas[i].legajo == personas[i + 1].legajo &&
+                                 personas[i].edad > personas[i + 1].edad) {
+                            cambiar = 1;
+                        }
 
-    // Ordenar con burbuja (Double Sort)
-    do{
-        ordenado = 0;
-        for (short i = 0; i < N - 1; i++) {
-            if (personas[i].edad > personas[i + 1].edad) {
-                temp = personas[i];
-                personas[i] = personas[i + 1];
-                personas[i + 1] = temp;
-                ordenado = 1;
-            }
-        }
-    }while (ordenado);
-
+                        if (cambiar == 1) {
+                            temp = personas[i];
+                            personas[i] = personas[i + 1];
+                            personas[i + 1] = temp;
+                            ordenado = 1;
+                        }
+                    }
+                }while (ordenado);
+                break;
+    }
 
     /*
     // Ordenar a las personas por el metodo de pivot
@@ -100,7 +139,7 @@ int main() {
     printf("\nPromedio de edad: %.2f\n", promedio);
 
     // Búsqueda por legajo o nombre
-    short opcion, legajo;
+    short legajo;
     char nombreBuscado[MAX_NOMBRE];
     printf("\nBuscar por (1) Legajo o (2) Nombre: ");
     scanf("%hd", &opcion);
