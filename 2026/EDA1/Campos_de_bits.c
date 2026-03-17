@@ -9,9 +9,12 @@ Campos de bits — usar memoria como si fuera un TETRIS
     Mejor usar 1 byte (8 bits) y controlar cada luz individualmente
 
 union
-  = una sola memoria, varios significados (pero uno a la vez)
+	= una sola memoria, varios significados (pero uno a la vez)
 campos de bits
-  = dividir la memoria al máximo (bit por bit)
+	= dividir la memoria al máximo (bit por bit)
+Ejemplo mental final
+	union → un cajon que uso para distintas cosas y solo puedo guardar una cosa a la vez
+	campos de bits → un cajon con distintos compartimientos donde cada uno si se quiere puede ser un bit
 
 */
 #include <stdio.h>
