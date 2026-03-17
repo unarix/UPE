@@ -14,43 +14,56 @@ campos de bits
   = dividir la memoria al máximo (bit por bit)
 
 */
-
 #include <stdio.h>
 
-struct Luces {
-	unsigned int l1 : 1;
-	unsigned int l2 : 1;
-	unsigned int l3 : 1;
-	unsigned int l4 : 1;
-	unsigned int l5 : 1;
-	unsigned int l6 : 1;
-	unsigned int l7 : 1;
-	unsigned int l8 : 1;
+union Panel {
+	struct {
+		unsigned l1:1;
+		unsigned l2:1;
+		unsigned l3:1;
+		unsigned l4:1;
+		unsigned l5:1;
+		unsigned l6:1;
+		unsigned l7:1;
+		unsigned l8:1;
+	} luces;
+	unsigned char valor;
 };
 
-// Función para mostrar estado
-void mostrar(struct Luces luces) {
-	printf("Estado: %d %d %d %d %d %d %d %d\n",
-		   luces.l1, luces.l2, luces.l3, luces.l4,
-		   luces.l5, luces.l6, luces.l7, luces.l8);
+// Mostrar en formato de luces
+void mostrarLuces(union Panel p) {
+	printf("Luces: %d %d %d %d %d %d %d %d\n",
+		   p.luces.l8, p.luces.l7, p.luces.l6, p.luces.l5,
+		   p.luces.l4, p.luces.l3, p.luces.l2, p.luces.l1);
+}
+
+// Mostrar valor entero
+void mostrarValor(union Panel p) {
+	printf("Valor entero: %d\n", p.valor);
 }
 
 int main() {
-	struct Luces panel = {0}; // todas apagadas
+	union Panel panel;
 	
-	mostrar(panel);
+	// Inicializar todo apagado
+	panel.valor = 0;
+	mostrarLuces(panel);
+	mostrarValor(panel);
 	
-	// Encender algunas luces
-	panel.l1 = 1;
-	panel.l4 = 1;
-	panel.l8 = 1;
+	// Encender luz 2 usando número
+	panel.valor = 2; // 00000010
+	mostrarLuces(panel);
+	mostrarValor(panel);
 	
-	mostrar(panel);
+	// Encender luz 1 manualmente
+	panel.luces.l1 = 1;
+	mostrarLuces(panel);
+	mostrarValor(panel);
 	
-	// Apagar una luz
-	panel.l4 = 0;
-	
-	mostrar(panel);
+	// Encender luz 8
+	panel.valor = 255;
+	mostrarLuces(panel);
+	mostrarValor(panel);
 	
 	return 0;
 }
