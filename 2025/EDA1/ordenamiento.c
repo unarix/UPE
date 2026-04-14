@@ -1,4 +1,4 @@
-// Ordenamiento
+// Ordenamiento seleccion (sort)
 
 #include<stdio.h>
 
