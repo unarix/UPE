@@ -1,3 +1,6 @@
+// Cuidado con Realloc... puede mover todo el contenido a otra parte de la memoria si ya no tiene lugar para reallocar donde vivia previamente. 
+// Evitar punteros que apunten a vectores cuando usamos memoria dinamica!
+
 #include <stdio.h>
 #include <string.h>
 
