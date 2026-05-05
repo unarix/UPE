@@ -1,4 +1,4 @@
-
+// Cuidado con los desbordamientos / overflow de las variables... una mala implementacion puede ser "hackeable"
 
 #include <stdio.h>
 #include <string.h>
