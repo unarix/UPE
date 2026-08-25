@@ -18,20 +18,21 @@ int main() {
 	
 	// Cálculos con operadores de asignación y multiplicación
 	subtotal = precio_unitario * cantidad;
-	total_iva = subtotal * 1.21; // Agrega el 21% de IVA
+	//total_iva = subtotal * 1.21; // Agrega el 21% de IVA
+	total_iva = ((subtotal * 21) / 100) + subtotal;
 	
 	// Operador de comparación: Devuelve 1 si supera los 10000, 0 si no.
-	int aplica_descuento = total_iva > 10000;
+	//short aplica_descuento = total_iva > 10000;
 	
 	// Si aplica_descuento es 1, descuenta el 10%; si es 0, resta 0.
-	total_final = total_iva - (total_iva * 0.10 * aplica_descuento);
+	total_final = total_iva - (total_iva * 0.10); //* aplica_descuento);
 	
 	printf("\n=====================================\n");
 	printf("           TICKET DE COMPRA          \n");
 	printf("=====================================\n");
 	printf("Subtotal (sin IVA)   : $%.2f\n", subtotal);
 	printf("Total con IVA (21%%)  : $%.2f\n", total_iva);
-	printf("Aplica Descuento 10%% : %c\n", aplica_descuento ? 'S' : 'N');
+	//printf("Aplica Descuento 10%% : %c\n", aplica_descuento ? 'S' : 'N');
 	printf("-------------------------------------\n");
 	printf("TOTAL A PAGAR        : $%.2f\n", total_final);
 	printf("=====================================\n");
