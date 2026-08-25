@@ -10,8 +10,10 @@ int main() {
     // Evaluación con operadores relacionales y el operador lógico AND (&&)
     puede_subir = (edad >= 14);
 
+    printf("La edad ingresada es: %hd\n", edad);
+    
     printf("\n--- ACCESO A LA Montania Rusa ---\n");
-    printf("Resultado (1 = Autorizado / 0 = Denegado): %d\n", puede_subir);
+    printf("Resultado (1 = Autorizado / 0 = Denegado): %hd\n", puede_subir);
 
     return 0;
 }
