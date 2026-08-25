@@ -4,7 +4,7 @@ int main() {
 	float precio_unitario, subtotal, total_iva, total_final;
 	// float 4 bytes: 0.00000000000000000000000000000000000001175 a 340.282.346.638.528.860.000.000.000.000.000.000.000 (340 quintillones)
 	short cantidad;
-	// short -32.768 a 32.767
+	// short 2 bytes: -32.768 a 32.767
 	
 	printf("=====================================\n");
 	printf("      SISTEMA DE FACTURACION         \n");
