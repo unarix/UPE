@@ -17,6 +17,7 @@ int main() {
     printf("Ingrese la cantidad comprada: ");
     scanf("%hd", &cantidad);
 
+    // VALIDAR QUE LA CANTIDAD Y EL PRECIO SEAN MAYOR A CERO!
     // 1. IF SIMPLE (Validacion de entrada / Cláusula de guarda)
     if (precio_unitario <= 0 || cantidad <= 0) {
         printf("\n[ERROR] El precio y la cantidad deben ser mayores a cero.\n");
@@ -26,6 +27,10 @@ int main() {
     subtotal = precio_unitario * cantidad;
     total_iva = subtotal * 1.21;
 
+    // SI EL TOTAL CON IVA SUPERA LOS 20MIL APLICAR DESPUENTO DEL 15%!
+    // SI EL TOTAL CON IVA SUPERA LOS 10MIL APLICAR DESPUENTO DEL 10%!
+    // SI EL TOTAL CON IVA SUPERA LOS 5MIL APLICAR DESPUENTO DEL 5%!
+    // SI NO, no aplicar descuento.!
     // 2. IF - ELSE IF - ELSE (Estructura de cascada por rangos)
     if (total_iva >= 20000) {
         porcentaje_descuento = 0.15; // 15% de descuento
@@ -38,6 +43,10 @@ int main() {
     }
 
     // 3. IF - ELSE con IF ANIDADO (Forma de pago)
+    // QUE PERMITA SELECCIONAR EL METODO DE PAGO: 1 EFECTIVO / 2 TARJETA
+    // SI ES EN EFECTIVO APLICA UN 2% DE DESCUENTO
+    // SI ES CON TARJETA UN 5% DE RECARGO.
+    // SI PUSO UNA OPCION INVALIDA INFORMARLO.
     printf("\nSeleccione el metodo de pago (1: Efectivo, 2: Tarjeta): ");
     scanf("%d", &metodo_pago);
 
