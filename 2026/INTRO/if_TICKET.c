@@ -4,8 +4,8 @@ int main() {
     float precio_unitario, subtotal, total_iva, total_final;
     short cantidad;
     int metodo_pago;
-    float porcentaje_descuento = 0.0f;
-    float recargo = 0.0f;
+    float porcentaje_descuento = 0.0;
+    float recargo = 0.0;
 
     printf("=====================================\n");
     printf("       SISTEMA DE FACTURACION        \n");
@@ -24,17 +24,17 @@ int main() {
     }
 
     subtotal = precio_unitario * cantidad;
-    total_iva = subtotal * 1.21f;
+    total_iva = subtotal * 1.21;
 
     // 2. IF - ELSE IF - ELSE (Estructura de cascada por rangos)
     if (total_iva >= 20000) {
-        porcentaje_descuento = 0.15f; // 15% de descuento
+        porcentaje_descuento = 0.15; // 15% de descuento
     } else if (total_iva >= 10000) {
-        porcentaje_descuento = 0.10f; // 10% de descuento
+        porcentaje_descuento = 0.10; // 10% de descuento
     } else if (total_iva >= 5000) {
-        porcentaje_descuento = 0.05f; // 5% de descuento
+        porcentaje_descuento = 0.05; // 5% de descuento
     } else {
-        porcentaje_descuento = 0.00f; // Sin descuento
+        porcentaje_descuento = 0.0;  // Sin descuento
     }
 
     // 3. IF - ELSE con IF ANIDADO (Forma de pago)
@@ -44,10 +44,10 @@ int main() {
     if (metodo_pago == 1) {
         // IF ANIDADO: Solo en efectivo aplica un 2% extra si supera los $10.000
         if (total_iva >= 10000) {
-            porcentaje_descuento += 0.02f; // Bonificación extra
+            porcentaje_descuento += 0.02; // Bonificación extra
         }
     } else if (metodo_pago == 2) {
-        recargo = total_iva * 0.05f; // 5% de recargo por tarjeta
+        recargo = total_iva * 0.05; // 5% de recargo por tarjeta
     } else {
         printf("\n[AVISO] Metodo no valido. Se procesara como Efectivo sin bonificacion.\n");
     }
