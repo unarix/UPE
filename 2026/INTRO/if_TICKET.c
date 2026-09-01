@@ -32,6 +32,17 @@ int main() {
     // SI EL TOTAL CON IVA SUPERA LOS 5MIL APLICAR DESPUENTO DEL 5%!
     // SI NO, no aplicar descuento.!
     // 2. IF - ELSE IF - ELSE (Estructura de cascada por rangos)
+
+    /* 
+    Operador,    Significado,    Ejemplo,        Condición (suponiendo x = 5)
+    ==,          Igual a,if (x == 5),            Verdadero
+    !=,          Distinto de,if (x != 5),        Falso
+    >,           Mayor que,if (x > 3),           Verdadero
+    <,           Menor que,if (x < 10),          Verdadero
+    >=,          Mayor o igual que,if (x >= 5),  Verdadero
+    <=,          Menor o igual que,if (x <= 4),  Falso
+    */
+    
     if (total_iva >= 20000) {
         porcentaje_descuento = 0.15; // 15% de descuento
     } else if (total_iva >= 10000) {
