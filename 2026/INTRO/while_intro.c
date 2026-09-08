@@ -5,8 +5,10 @@
 // Ejemplo, Suma diez veces el numero 1, de uno en uno y guarde su resultado en una variable total.
 
 int main() {
-    int sumador = 1; // 1. Inicialización de la variable de control
+    short sumador = 1; // 1. Inicialización de la variable de control
 
+    // Bueno, da la forma que podriamos hacerlo usando lo que sabemos es: 
+    /*
     sumador = sumador + 1;
     sumador = sumador + 1;
     sumador = sumador + 1;
@@ -16,12 +18,15 @@ int main() {
     sumador = sumador + 1;
     sumador = sumador + 1;
     sumador = sumador + 1;
-    
-    // 2. Condición de permanencia
-    while (contador <= 10) {
+    */
+
+    // Una de las cosas para lo que me sirve el while es para ahorrarme codigo, repetir el codigo que esta dentro tantas veces como la condicion lo diga.
+    // Condición de permanencia, mientras la condicion sea verdadera, ejecuta el codigo que esta dentro.
+    while (sumador <= 10) {
         sumador = sumador + 1; // 3. Actualización (paso hacia el fin del bucle)
     }
 
+    printf("Sumador = %hd \n", sumador);
     printf("¡Bucle terminado!\n");
     return 0;
 }
