@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*
+    Implementar un monitoreo en loop continuo para un procesador que aplique proteccion termica a mas de 80 grados.
+*/
+
 struct Procesador {
     short id_core;
     short temp_celsius;
