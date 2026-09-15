@@ -18,7 +18,7 @@ int main(void) {
     printf("Nombre: %s\n", alumno1.nombre);
     printf("Edad: %d anos\n", alumno1.edad);
     printf("Promedio: %.1f\n", alumno1.promedio);
-    printf("Promedio: %.1f\n", alumno1.promedio);
+    printf("Legajo: %.1f\n", alumno1.legajo);
 
     return 0;
 }
