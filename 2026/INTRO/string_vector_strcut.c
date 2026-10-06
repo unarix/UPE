@@ -1,68 +1,58 @@
 /*
 
-Enunciado: Calculadora de Maratón de Streaming (Netflix / Spotify)
+Crear un programa en ANSI C para calcular el tiempo que toma maratonear una serie.
+Se registrará en una única estructura:
+- Título de la serie (string).
+- Duración en minutos de 3 episodios (vector de enteros).
 
-Un usuario quiere calcular cuánto tiempo pasa maratoneando sus 2 series favoritas.
-Para cada serie se registrará:
-
- - Título de la serie (string).
- - Duración en minutos de sus primeros 3 episodios (vector de enteros).
- 
-El programa calculará el tiempo total acumulado de cada serie y mostrará el resumen en pantalla.
- 
+El programa leerá los datos por teclado, sumará el tiempo total y mostrará el resumen en pantalla.
 */
-
 #include <stdio.h>
 
-#define CANT_SERIES 2
 #define CANT_EPISODIOS 3
 
 /* Definición de la estructura */
 struct Serie {
-    char titulo[30];                      /* String */
-    short minutosEpisodios[CANT_EPISODIOS]; /* Vector dentro de la estructura */
-    short tiempoTotal;
+    char titulo[30];                     /* STRING: Título de la serie */
+    int minutosEpisodios[CANT_EPISODIOS];/* VECTOR: Duración de cada capítulo */
+    int tiempoTotal;
 };
 
 int main(void) {
     /* Declaración de variables al inicio (Regla ANSI C / C89) */
-    struct Serie maraton[CANT_SERIES];   /* Vector de estructuras */
-    int i, j;
+    struct Serie miSerie;               /* Una sola variable struct */
+    int j;
 
-    /* 1. CARGA DE DATOS Y CÁLCULO */
-    for (i = 0; i < CANT_SERIES; i++) {
-        printf("--- Registro de Serie %d ---\n", i + 1);
-        
-        printf("Titulo de la serie (sin espacios): ");
-        scanf("%s", maraton[i].titulo);
+    /* 1. CARGA DE DATOS */
+    printf("=== MARATON DE STREAMING ===\n\n");
 
-        maraton[i].tiempoTotal = 0;
-        printf("Ingrese la duracion (minutos) de los %hd episodios:\n", CANT_EPISODIOS);
+    printf("Ingrese el titulo de la serie (sin espacios): ");
+    scanf("%s", miSerie.titulo);
+
+    miSerie.tiempoTotal = 0;
+    printf("\nIngrese la duracion (en minutos) de los %d episodios:\n", CANT_EPISODIOS);
+
+    for (j = 0; j < CANT_EPISODIOS; j++) {
+        printf("  Episodio %d: ", j + 1);
+        scanf("%d", &miSerie.minutosEpisodios[j]);
         
-        for (j = 0; j < CANT_EPISODIOS; j++) {
-            printf("  Episodio %hd: ", j + 1);
-            scanf("%hd", &maraton[i].minutosEpisodios[j]);
-            maraton[i].tiempoTotal += maraton[i].minutosEpisodios[j];
-        }
-        printf("\n");
+        /* Acumulación directa en el campo tiempoTotal */
+        miSerie.tiempoTotal += miSerie.minutosEpisodios[j];
     }
 
-    /* 2. RESUMEN FINAL DE STREAMING */
+    /* 2. RESUMEN FINAL */
+    printf("\n===========================================\n");
+    printf("           RESUMEN DEL MARATON             \n");
     printf("===========================================\n");
-    printf("        RESUMEN DEL MARATON STREAMING      \n");
+    printf("Serie       : %s\n", miSerie.titulo);
+    printf("Episodios   : [%d min, %d min, %d min]\n", 
+           miSerie.minutosEpisodios[0], 
+           miSerie.minutosEpisodios[1], 
+           miSerie.minutosEpisodios[2]);
+    printf("Tiempo Total: %d minutos (~%.1f horas)\n", 
+           miSerie.tiempoTotal, 
+           miSerie.tiempoTotal / 60.0);
     printf("===========================================\n");
-    
-    for (i = 0; i < CANT_SERIES; i++) {
-        printf("Serie       : %s\n", maraton[i].titulo);
-        printf("Episodios   : [%hd min, %hd min, %hd min]\n", 
-               maraton[i].minutosEpisodios[0], 
-               maraton[i].minutosEpisodios[1], 
-               maraton[i].minutosEpisodios[2]);
-        printf("Tiempo Total: %hd minutos (~%.1f horas)\n", 
-               maraton[i].tiempoTotal, 
-               maraton[i].tiempoTotal / 60.0);
-        printf("-------------------------------------------\n");
-    }
 
     return 0;
 }
