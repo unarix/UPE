@@ -1,3 +1,17 @@
+/*
+
+Enunciado: Calculadora de Maratón de Streaming (Netflix / Spotify)
+
+Un usuario quiere calcular cuánto tiempo pasa maratoneando sus 2 series favoritas.
+Para cada serie se registrará:
+
+ - Título de la serie (string).
+ - Duración en minutos de sus primeros 3 episodios (vector de enteros).
+ 
+El programa calculará el tiempo total acumulado de cada serie y mostrará el resumen en pantalla.
+ 
+*/
+
 #include <stdio.h>
 
 #define CANT_SERIES 2
@@ -5,8 +19,8 @@
 
 /* Definición de la estructura */
 struct Serie {
-    char titulo[30];                     /* String */
-    int minutosEpisodios[CANT_EPISODIOS];/* Vector dentro de la estructura */
+    char titulo[30];                      /* String */
+    int minutosEpisodios[CANT_EPISODIOS]; /* Vector dentro de la estructura */
     int tiempoTotal;
 };
 
