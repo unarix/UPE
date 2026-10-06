@@ -20,8 +20,8 @@ El programa calculará el tiempo total acumulado de cada serie y mostrará el re
 /* Definición de la estructura */
 struct Serie {
     char titulo[30];                      /* String */
-    int minutosEpisodios[CANT_EPISODIOS]; /* Vector dentro de la estructura */
-    int tiempoTotal;
+    short minutosEpisodios[CANT_EPISODIOS]; /* Vector dentro de la estructura */
+    short tiempoTotal;
 };
 
 int main(void) {
@@ -37,11 +37,11 @@ int main(void) {
         scanf("%s", maraton[i].titulo);
 
         maraton[i].tiempoTotal = 0;
-        printf("Ingrese la duracion (minutos) de los %d episodios:\n", CANT_EPISODIOS);
+        printf("Ingrese la duracion (minutos) de los %hd episodios:\n", CANT_EPISODIOS);
         
         for (j = 0; j < CANT_EPISODIOS; j++) {
-            printf("  Episodio %d: ", j + 1);
-            scanf("%d", &maraton[i].minutosEpisodios[j]);
+            printf("  Episodio %hd: ", j + 1);
+            scanf("%hd", &maraton[i].minutosEpisodios[j]);
             maraton[i].tiempoTotal += maraton[i].minutosEpisodios[j];
         }
         printf("\n");
@@ -54,11 +54,11 @@ int main(void) {
     
     for (i = 0; i < CANT_SERIES; i++) {
         printf("Serie       : %s\n", maraton[i].titulo);
-        printf("Episodios   : [%d min, %d min, %d min]\n", 
+        printf("Episodios   : [%hd min, %hd min, %hd min]\n", 
                maraton[i].minutosEpisodios[0], 
                maraton[i].minutosEpisodios[1], 
                maraton[i].minutosEpisodios[2]);
-        printf("Tiempo Total: %d minutos (~%.1f horas)\n", 
+        printf("Tiempo Total: %hd minutos (~%.1f horas)\n", 
                maraton[i].tiempoTotal, 
                maraton[i].tiempoTotal / 60.0);
         printf("-------------------------------------------\n");
