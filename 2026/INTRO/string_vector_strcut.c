@@ -38,7 +38,9 @@ int main(void) {
 	
 	miSerie.tiempoTotal = 0;
 	printf("\nIngrese los datos de los %d episodios:\n", CANT_EPISODIOS);
-	
+
+	// que tengo que hacer ahora? un for... porque? 
+	// Debo hacer un for, para meter las calificaciones y duracion de cada episodio.
 	for (i = 0; i < CANT_EPISODIOS; i++) {
 		printf("\n--- Episodio %hd ---\n", i + 1);
 		
@@ -50,10 +52,11 @@ int main(void) {
 		
 		/* Acumulación directa de tiempos y calificaciones */
 		miSerie.tiempoTotal += miSerie.minutosEpisodios[i];
+		// que son estos? acumuladores, es lo mismo que los contadores? 
 		sumaCalificaciones += miSerie.calificaciones[i];
 	}
 	
-	/* Cálculo del promedio con casteo explícito a float */
+	/* Cálculo del promedio... deberia castear a float, lo aprendimos? */
 	miSerie.promedioCalificacion = (float)sumaCalificaciones / CANT_EPISODIOS;
 	
 	/* 2. RESUMEN FINAL */
